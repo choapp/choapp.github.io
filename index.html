@@ -4,15 +4,30 @@
     <meta charset="utf-8">
     <title>My test page</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function() {
+            window.setTimeout(function(){
+                document.getElementById("text-box").style.display ="none";
+            }, 1500);
+        };
+    </script>
   </head>
   <body>
     <section class="youtube">
         <div class="video-box overlay">
             <iframe class="youtube-video" width="720" height="405" src="https://www.youtube.com/embed/AxoF5QBLCaA?autoplay=1&playsinline=1&mute=1&controls=0&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div class="text-box">
+        <div class="text-box" id="text-box">
           <h1>Sample Movie<br>APP CREATOR</h1>
+          <h2>Iizuka Toshihide</h2>
         </div>
       </section>
+      <section class="detail">
+          <h1>APP CREATOR</h1>
+          <h2>Iizuka Toshihide</h2>
+          <div>
+              <a href="https://iizukatoshihide.github.io" target="_sub">github</a> <a href="./pdf.html" target="_sub">PDF</a>
+          </div>
+    </section>
   </body>
 </html>
