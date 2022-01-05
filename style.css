@@ -87,3 +87,20 @@
     transform: translate(-50%, -50%);
     z-index: -100;
   }
+
+  /* Link */
+
+  a {
+    color:#0000EE;
+    text-decoration:underline;
+    }
+    
+    a:hover {
+    color:#0000EE;
+    text-decoration:none;
+    }
+    
+    a:visited {
+    color:#551A8B;
+    text-decoration:underline;
+    }
