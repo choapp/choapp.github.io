@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+Program by Choapp CEO
+2023.9.26
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2NQWM6NNK"></script>
+    <script src="./ga.js"></script>
+    <script src="./main.js"></script>
+    <script>            
+        function run() {
+            //プログラム
+            
+            //タイトル
+            let pagetitle = document.getElementById("page_title");
+            document.title = titletext;
+            
+        }
+        
+        function reset() {
+            
+            //記憶用テキスト
+            let memorybox = document.getElementById("memory_box");
+            
+            //メインテキスト
+            let mainbox = document.getElementById("main_box");
+            mainbox.value = memorybox.value;
+        }
+        
+        function replace() {
+            //ファイル名
+            let filename = document.getElementById("name");
+            
+            //ディスク名
+            var discname = document.getElementById("discname");
+            discname.value = filename.value;
+            
+            //インストールディスク名
+            let installdiscname = document.getElementById("installdiscname");
+            
+            //記憶用テキスト
+            let memorybox = document.getElementById("memory_box");
+            
+            //テキストの置換
+            var boxvalue = memorybox.value;
+            boxvalue = boxvalue.replace("任意のディスク名", discname.value + ".dmg");
+            boxvalue = boxvalue.replace("任意のインストールディスク名", installdiscname.value + ".iso");
+            
+            //メインテキスト
+            let mainbox = document.getElementById("main_box");
+            mainbox.value = boxvalue;
+            
+            //Bat Command
+            let batcommandbox = document.getElementById("batcommand");
+            batcommandbox.value = ".\ppc.exe " + filename.value + ".cfg";
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body onload="run();">
+    <h1 id="page_title"><a href="https://github.com/choapp/PearPCSetup/wiki" target="_blank">Pear PC Install for Mac OS X to Editor(簡易版ベータ)</a></h1>
+    <h2>Program by Choapp CEO</h2>
+    <div>
+        <div>
+            <small>※このページはJava Scriptを利用しています。使用する場合は使用を許可して利用してください。</small><br/>
+            <small>※このプログラムは簡易版のベータプログラムです。</small><br/>
+        </div>
+        <h3>Config file</h3>
+        <h4>ファイル名(保存したいファイル名)</h4>
+        <p><input type="text" id="name" name="name" size="20" value="任意のファイル名" />.cfg</p>
+        <h4>ディスク名(HDDイメージファイル名)</h4>
+        <p><input type="text" id="discname" name="discname" size="20" value="任意のディスク名" />.dmg</p>
+        <h4>インストールディスク名(OSインストールファイルイメージ)</h4>
+        <p><input type="text" id="installdiscname" name="installdiscname" size="50" value="任意のインストールディスク名" />.iso(または.img)</p>
+        <div><input type="button" value="リセット" onclick="reset();"><input type="button" value="実行" onclick="replace();"></div>
+        <h4>結果</h4>
+        <div>
+            <textarea id="main_box" cols = 50 rows = 28>
+ppc_start_resolution = '1024x768x32'
+ppc_start_full_screen = 0
+redraw_interval_msec = 10
+key_compose_dialog = 'F11'
+key_change_cd_0 = 'none'
+key_toggle_mouse_grab = 'F12'
+key_toggle_full_screen = 'Alt+Return'
+prom_bootmethod = 'select'
+prom_env_bootargs = ''
+prom_env_machargs = ''
+prom_driver_graphic = 'video.x'
+page_table_pa = 0x00300000
+cpu_pvr = 0x00088302
+memory_size = 0x10000000
+pci_ide0_master_installed = 1
+pci_ide0_master_image = '任意のディスク名'
+pci_ide0_master_type = 'hd'
+pci_ide0_slave_installed = 1
+pci_ide0_slave_image = '任意のインストールディスク名'
+pci_ide0_slave_type = 'cdrom'
+pci_3c90x_installed = 0
+pci_3c90x_mac = '11:22:33:44:55:66'
+pci_rtl8139_installed = 0
+pci_rtl8139_mac = 'AA:BB:CC:00:11:22'
+pci_usb_installed = 0
+pci_serial_installed = 0
+nvram_file = 'nvram'
+            </textarea>
+        </div>
+        <div hidden>
+            <textarea id="memory_box" cols = 50 rows = 28>
+ppc_start_resolution = '1024x768x32'
+ppc_start_full_screen = 0
+redraw_interval_msec = 10
+key_compose_dialog = 'F11'
+key_change_cd_0 = 'none'
+key_toggle_mouse_grab = 'F12'
+key_toggle_full_screen = 'Alt+Return'
+prom_bootmethod = 'select'
+prom_env_bootargs = ''
+prom_env_machargs = ''
+prom_driver_graphic = 'video.x'
+page_table_pa = 0x00300000
+cpu_pvr = 0x00088302
+memory_size = 0x10000000
+pci_ide0_master_installed = 1
+pci_ide0_master_image = '任意のディスク名'
+pci_ide0_master_type = 'hd'
+pci_ide0_slave_installed = 1
+pci_ide0_slave_image = '任意のインストールディスク名'
+pci_ide0_slave_type = 'cdrom'
+pci_3c90x_installed = 0
+pci_3c90x_mac = '11:22:33:44:55:66'
+pci_rtl8139_installed = 0
+pci_rtl8139_mac = 'AA:BB:CC:00:11:22'
+pci_usb_installed = 0
+pci_serial_installed = 0
+nvram_file = 'nvram'
+            </textarea>
+        </div>
+        <div><small>メモ帳などでプレーンテキストで保存してください。</small></div>
+        <h3>Batch file</h3>
+        <h4>ファイル名(保存したいファイル名)</h4>
+        <p><input type="text" id="batname" name="batname" size="20" value="任意のファイル名" />.bat</p>
+        <h4>Command</h4>
+        <p><input type="text" id="batcommand" name="batcommand" size="50" value=".\ppc.exe 作成したConfigファイル名.cfg" /></p>
+        <div><small>メモ帳などでプレーンテキストで保存してください。</small></div>
+    </div>
+    <div id="footer">
+      <p class="copyright">Copyright&nbsp;&nbsp;(C)Choapp&nbsp;All&nbsp;Rights&nbsp;Reserved.</p>
+    </div>
+  </body>
+</html>
