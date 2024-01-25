@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+Program by Choapp CEO
+2024/1/25
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SimpleSearchWeb</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2NQWM6NNK"></script>
+    <script src="./ga.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      //テキスト非表示
+      onshow("text-box2");
+    </script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div>
+      <p>Simple Search Web</p>
+      <input type="text" id="SRC" value="https://news.yahoo.co.jp"><br/>
+      <button id="GO">GO</button>
+      <div id="RESULT">a</div>
+      <script>
+        $('#GO').on('click', function() {
+          var SRC = document.getElementById("SRC").value;
+          if ( SRC != "" && SRC != null ) {
+            alert(SRC);
+
+            $("#RESULT").load(SRC);
+            // $("RESULT").load(SRC);
+            // var HTML = document.getElementById("RESULT").value;
+            // var html = $.parseHTML(HTML);
+            // var obj = {html: html};
+            // var count = HTML.length;
+            // for (var i=0; i<HTML.length; i++) {
+            //   var data = HTML[i];
+            //   alert(JSON.stringify(data));
+            // }
+            // alert(count);
+	          // alert($.type(HTML))
+            // alert(JSON.stringify(HTML));
+          }
+        });
+      </script>
+    </div>
+    <div id="footer">
+      <p class="copyright">Copyright&nbsp;&nbsp;(C)Choapp&nbsp;All&nbsp;Rights&nbsp;Reserved.</p>
+    </div>
+  </body>
+</html>
